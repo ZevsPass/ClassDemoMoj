@@ -127,16 +127,20 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonEditActionPerformed
     }
     private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
-        DeleteDialog deleteDialog = new DeleteDialog(this,true);
+       // DeleteDialog deleteDialog = new DeleteDialog(this,true);
+       YesNoCancelDialog yesNoCancel  = new YesNoCancelDialog(this,true);
         int selectedRow = this.jTable1.getSelectedRow();
         if (selectedRow !=-1){
             DefaultTableModel tableModel = (DefaultTableModel) this.jTable1.getModel();
-            String mnFrameName =(String) tableModel.getValueAt(selectedRow, 0);
-            String mnFrameSurname = (String) tableModel.getValueAt(selectedRow, 1);
-            deleteDialog.setName(null);
-            deleteDialog.setSurname(null);
-            tableModel.setValueAt(deleteDialog.getName(), selectedRow, 0);
-            tableModel.setValueAt(deleteDialog.getSurname(), selectedRow, 1);
+           // String mnFrameName =(String) tableModel.getValueAt(selectedRow, 0);
+           // String mnFrameSurname = (String) tableModel.getValueAt(selectedRow, 1);
+            
+           // deleteDialog.setName(null);
+           // deleteDialog.setSurname(null);
+           System.out.println("Вы уверены, что хотите удалить работника");
+           tableModel.removeRow(selectedRow);
+           // tableModel.setValueAt(deleteDialog.getName(), selectedRow, 0);
+          //  tableModel.setValueAt(deleteDialog.getSurname(), selectedRow, 1);
         }
         
     }//GEN-LAST:event_buttonDeleteActionPerformed
